@@ -24,7 +24,7 @@ def load_data():
     #normalise data set
     X_train = X_train / 255.
     X_test = X_test / 255.
-
+    X_test = X_test / 300.
     #numbers to categories
     y_train = to_categorical(labels_train, 10)
     y_test = to_categorical(labels_test, 10)
@@ -42,9 +42,11 @@ def initialize_model():
     model.add(layers.MaxPooling2D(pool_size=(3, 3)))
 
     model.add(layers.Flatten())
+    model.add(layers.Flatten())
     model.add(layers.Dense(120, activation='relu'))
     model.add(layers.Dense(60, activation='relu'))
     model.add(layers.Dropout(0.5))
+    model.add(layers.Dense(10, activation='softmax'))
     model.add(layers.Dense(10, activation='softmax'))
     
     return model
