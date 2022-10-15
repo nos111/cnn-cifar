@@ -56,13 +56,13 @@ def train_model():
     model = initialize_model()
     model = compile_model(model)
     (X_train, y_train), (X_test, y_test)  = load_data()
-    es = EarlyStopping(patience=30, verbose=1)
+    es = EarlyStopping(patience=20, verbose=1)
 
     history = model.fit(X_train, y_train, 
-                        validation_split=0.3,
+                        validation_split=0.5,
                         callbacks=[es], 
                         epochs=500, 
-                        batch_size=32)
+                        batch_size=16)
     
     with open("model.pkl", "wb") as file:
         pickle.dump(model, file)
