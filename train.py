@@ -46,7 +46,7 @@ def initialize_model():
  
     model.add(layers.Dense(120, activation='relu'))
     model.add(layers.Dense(60, activation='relu'))
-    model.add(layers.Dropout(0.5))
+    model.add(layers.Dropout(0.4))
     model.add(layers.Dense(10, activation='softmax'))
     model.add(layers.Dense(10, activation='softmax'))
 
