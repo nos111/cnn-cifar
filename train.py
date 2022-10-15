@@ -37,18 +37,19 @@ def initialize_model():
 
     model.add(layers.Conv2D(64, (3, 3), padding='same', activation='relu'))
     model.add(layers.MaxPooling2D(pool_size=(3, 3)))
-    
-    model.add(layers.Conv2D(128, (3, 3), padding='same', activation='relu'))
     model.add(layers.MaxPooling2D(pool_size=(3, 3)))
 
+    model.add(layers.Conv2D(128, (3, 3), padding='same', activation='relu'))
+    model.add(layers.MaxPooling2D(pool_size=(3, 3)))
+    model.add(layers.MaxPooling2D(pool_size=(3, 3)))
     model.add(layers.Flatten())
-    model.add(layers.Flatten())
+ 
     model.add(layers.Dense(120, activation='relu'))
     model.add(layers.Dense(60, activation='relu'))
     model.add(layers.Dropout(0.5))
     model.add(layers.Dense(10, activation='softmax'))
     model.add(layers.Dense(10, activation='softmax'))
-    
+
     return model
 
 def train_model():
